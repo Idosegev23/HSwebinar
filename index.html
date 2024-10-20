@@ -25,7 +25,7 @@
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 0 20px;
         }
@@ -45,30 +45,24 @@
         
         .main-content {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
+            flex-direction: column;
+            align-items: center;
             margin-top: -50px;
         }
         
-        .info-section {
-            flex-basis: 65%;
+        .card {
             background-color: white;
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             margin-bottom: 30px;
+            width: 100%;
+            max-width: 800px;
         }
         
         .form-section {
-            flex-basis: 30%;
             background-color: var(--secondary-color);
             color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            align-self: flex-start;
-            position: sticky;
-            top: 20px;
         }
         
         form {
@@ -98,11 +92,6 @@
         .about-speaker {
             display: flex;
             align-items: center;
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
         }
         
         .speaker-image {
@@ -155,19 +144,6 @@
         }
         
         @media (max-width: 768px) {
-            .main-content {
-                flex-direction: column;
-            }
-            
-            .info-section, .form-section {
-                flex-basis: 100%;
-            }
-            
-            .form-section {
-                position: static;
-                margin-top: 30px;
-            }
-            
             .about-speaker {
                 flex-direction: column;
                 text-align: center;
@@ -193,7 +169,7 @@
     
     <div class="container">
         <div class="main-content">
-            <div class="info-section">
+            <div class="card">
                 <h2>על הוובינר</h2>
                 <p>שלום לכולם!</p>
                 <p>אני מזמין אתכם לוובינר חינמי על תוכנת Homestyler המדהימה. במהלך הוובינר נסקור את הפונקציות המובילות של התוכנה ונראה איך היא הופכת את תהליך העיצוב הפנים לקל, מהיר וחדשני.</p>
@@ -208,7 +184,7 @@
                 </div>
             </div>
             
-            <div class="form-section">
+            <div class="card form-section">
                 <h2>הירשמו עכשיו</h2>
                 <form id="registration-form">
                     <input type="text" name="firstName" placeholder="שם פרטי" required>
@@ -218,16 +194,18 @@
                     <button type="submit">שלח פרטים</button>
                 </form>
             </div>
-        </div>
-        
-        <div class="about-speaker">
-            <img src="https://res.cloudinary.com/dsoh3yteb/image/upload/v1725734946/%D7%AA%D7%9E%D7%95%D7%A0%D7%94_%D7%A2%D7%99%D7%93%D7%95_qwrpgz.png" alt="עידו שגב" class="speaker-image">
-            <div>
-                <h2>אודות המרצה</h2>
-                <h3>עידו שגב - מומחה בינה מלאכותית לעיצוב פנים</h3>
-                <p>אני עידו שגב, מרצה ומומחה בתחום הבינה המלאכותית עם התמחות ייחודית בתחומי הנדל"ן, עיצוב הפנים והאדריכלות. מכהן כמרצה לבינה מלאכותית במכללת אולטימה לעיצוב פנים, העברתי מעל ל-100 סדנאות בתחום הבינה המלאכותית למעצבות ומעצבי פנים, עם למעלה מ-500 בוגרים.</p>
-                <p>עם ניסיון של מעל 15 שנים בעולם הטכנולוגיה והעסקים, ליוויתי עשרות עסקים בתהליכי אוטומציה דיגיטלית ושילוב מערכות AI מתקדמות. הרציתי בנושאי בינה מלאכותית בבית הספר לעיצוב פנים של "פופה" ועבדתי עם מגוון רחב של לקוחות, מחברות גדולות ועד לסטודיו לעיצוב קטנים.</p>
-                <p><strong>המטרה שלי היא להנגיש את הכוח של הבינה המלאכותית לכל מעצב ומעצבת, ולספק את הכלים להצלחה בעולם העיצוב המתפתח של היום.</strong></p>
+            
+            <div class="card">
+                <div class="about-speaker">
+                    <img src="https://res.cloudinary.com/dsoh3yteb/image/upload/v1725734946/%D7%AA%D7%9E%D7%95%D7%A0%D7%94_%D7%A2%D7%99%D7%93%D7%95_qwrpgz.png" alt="עידו שגב" class="speaker-image">
+                    <div>
+                        <h2>אודות המרצה</h2>
+                        <h3>עידו שגב - מומחה בינה מלאכותית לעיצוב פנים</h3>
+                        <p>אני עידו שגב, מרצה ומומחה בתחום הבינה המלאכותית עם התמחות ייחודית בתחומי הנדל"ן, עיצוב הפנים והאדריכלות. מכהן כמרצה לבינה מלאכותית במכללת אולטימה לעיצוב פנים, העברתי מעל ל-100 סדנאות בתחום הבינה המלאכותית למעצבות ומעצבי פנים, עם למעלה מ-500 בוגרים.</p>
+                        <p>עם ניסיון של מעל 15 שנים בעולם הטכנולוגיה והעסקים, ליוויתי עשרות עסקים בתהליכי אוטומציה דיגיטלית ושילוב מערכות AI מתקדמות. הרציתי בנושאי בינה מלאכותית בבית הספר לעיצוב פנים של "פופה" ועבדתי עם מגוון רחב של לקוחות, מחברות גדולות ועד לסטודיו לעיצוב קטנים.</p>
+                        <p><strong>המטרה שלי היא להנגיש את הכוח של הבינה המלאכותית לכל מעצב ומעצבת, ולספק את הכלים להצלחה בעולם העיצוב המתפתח של היום.</strong></p>
+                    </div>
+                </div>
             </div>
         </div>
         
