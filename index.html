@@ -21,21 +21,21 @@
             padding: 0;
             background-color: var(--bg-color);
             color: var(--text-color);
-            overflow-x: hidden;
+            line-height: 1.6;
         }
         
         .container {
-            max-width: 100%;
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 0 20px;
         }
         
         header {
             background-color: var(--primary-color);
             color: white;
             text-align: center;
-            padding: 20px 0;
+            padding: 40px 0;
             clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
-            padding-bottom: 4rem;
         }
         
         h1 {
@@ -45,37 +45,30 @@
         
         .main-content {
             display: flex;
-            flex-direction: column;
-            padding: 20px;
-            position: relative;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: -50px;
         }
         
-        .section {
+        .info-section {
+            flex-basis: 65%;
             background-color: white;
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             margin-bottom: 30px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .section::before {
-            content: '';
-            position: absolute;
-            top: -50px;
-            left: -50px;
-            width: 100px;
-            height: 100px;
-            background-color: var(--accent-color);
-            opacity: 0.1;
-            border-radius: 50%;
-            z-index: 0;
         }
         
         .form-section {
+            flex-basis: 30%;
             background-color: var(--secondary-color);
             color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            align-self: flex-start;
+            position: sticky;
+            top: 20px;
         }
         
         form {
@@ -104,17 +97,20 @@
         
         .about-speaker {
             display: flex;
-            flex-direction: column;
             align-items: center;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
         }
         
         .speaker-image {
-            width: 200px;
-            height: 200px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
-            margin-bottom: 20px;
+            margin-left: 30px;
             object-fit: cover;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
         
         .logo {
@@ -123,46 +119,67 @@
         }
         
         .contact-links {
-            margin-top: 20px;
             text-align: center;
+            margin-top: 30px;
+            margin-bottom: 50px;
         }
         
         .contact-links a {
+            display: inline-block;
             margin: 0 10px;
-            color: var(--primary-color);
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: white;
             text-decoration: none;
             font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
         
-        .floating-image {
-            position: absolute;
+        .contact-links a:hover {
+            background-color: var(--accent-color);
+        }
+        
+        .gallery {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        
+        .gallery img {
+            width: 48%;
+            margin-bottom: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
         }
-        
-        .floating-image:hover {
-            transform: scale(1.05);
-        }
-        
-        .image1 { top: 10%; right: -50px; width: 150px; }
-        .image2 { bottom: 20%; left: -30px; width: 120px; }
-        .image3 { top: 40%; right: -40px; width: 180px; }
-        .image4 { bottom: 5%; left: -50px; width: 200px; }
         
         @media (max-width: 768px) {
-            .floating-image {
+            .main-content {
+                flex-direction: column;
+            }
+            
+            .info-section, .form-section {
+                flex-basis: 100%;
+            }
+            
+            .form-section {
                 position: static;
-                width: 100%;
+                margin-top: 30px;
+            }
+            
+            .about-speaker {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .speaker-image {
+                margin-left: 0;
                 margin-bottom: 20px;
             }
             
-            .section {
-                padding: 20px;
-            }
-            
-            h1 {
-                font-size: 2em;
+            .gallery img {
+                width: 100%;
             }
         }
     </style>
@@ -176,17 +193,22 @@
     
     <div class="container">
         <div class="main-content">
-            <section class="section">
+            <div class="info-section">
                 <h2>על הוובינר</h2>
                 <p>שלום לכולם!</p>
                 <p>אני מזמין אתכם לוובינר חינמי על תוכנת Homestyler המדהימה. במהלך הוובינר נסקור את הפונקציות המובילות של התוכנה ונראה איך היא הופכת את תהליך העיצוב הפנים לקל, מהיר וחדשני.</p>
-                <img src="https://res.cloudinary.com/dsoh3yteb/image/upload/v1723557186/02a1e6c1c4674a6381ca1fa29e61c740_wd26rw.png" alt="עיצוב פנים 1" class="floating-image image1">
                 <p>נראה לכם כמה פשוט לשלב עיצובי פנים מתקדמים בעזרת התוכנה, וגם נסביר איך היא משנה את כללי המשחק בתחום. למשתתפי הוובינר תינתן הטבה בלעדית, אז אל תפספסו את ההזדמנות להכיר את Homestyler מקרוב ולגלות איך אפשר לעצב חללים מרהיבים במהירות ובקלות.</p>
-                <img src="https://res.cloudinary.com/dsoh3yteb/image/upload/v1723557185/0_3_on8o7x.webp" alt="עיצוב פנים 2" class="floating-image image2">
                 <p>נפגש בוובינר!</p>
-            </section>
+                
+                <div class="gallery">
+                    <img src="https://res.cloudinary.com/dsoh3yteb/image/upload/v1723557186/02a1e6c1c4674a6381ca1fa29e61c740_wd26rw.png" alt="עיצוב פנים 1">
+                    <img src="https://res.cloudinary.com/dsoh3yteb/image/upload/v1723557185/0_3_on8o7x.webp" alt="עיצוב פנים 2">
+                    <img src="https://res.cloudinary.com/dsoh3yteb/image/upload/v1723557186/0f4c23c28b5f4a00b778e0bd03a81f42_jclmqf.png" alt="עיצוב פנים 3">
+                    <img src="https://res.cloudinary.com/dsoh3yteb/image/upload/v1723557125/pexels-mark-1080696_vdldwa.jpg" alt="עיצוב פנים 4">
+                </div>
+            </div>
             
-            <section class="section form-section">
+            <div class="form-section">
                 <h2>הירשמו עכשיו</h2>
                 <form id="registration-form">
                     <input type="text" name="firstName" placeholder="שם פרטי" required>
@@ -195,18 +217,18 @@
                     <input type="email" name="email" placeholder="כתובת אימייל" required>
                     <button type="submit">שלח פרטים</button>
                 </form>
-            </section>
-            
-            <section class="section about-speaker">
-                <img src="https://res.cloudinary.com/dsoh3yteb/image/upload/v1725734946/%D7%AA%D7%9E%D7%95%D7%A0%D7%94_%D7%A2%D7%99%D7%93%D7%95_qwrpgz.png" alt="עידו שגב" class="speaker-image">
+            </div>
+        </div>
+        
+        <div class="about-speaker">
+            <img src="https://res.cloudinary.com/dsoh3yteb/image/upload/v1725734946/%D7%AA%D7%9E%D7%95%D7%A0%D7%94_%D7%A2%D7%99%D7%93%D7%95_qwrpgz.png" alt="עידו שגב" class="speaker-image">
+            <div>
                 <h2>אודות המרצה</h2>
                 <h3>עידו שגב - מומחה בינה מלאכותית לעיצוב פנים</h3>
                 <p>אני עידו שגב, מרצה ומומחה בתחום הבינה המלאכותית עם התמחות ייחודית בתחומי הנדל"ן, עיצוב הפנים והאדריכלות. מכהן כמרצה לבינה מלאכותית במכללת אולטימה לעיצוב פנים, העברתי מעל ל-100 סדנאות בתחום הבינה המלאכותית למעצבות ומעצבי פנים, עם למעלה מ-500 בוגרים.</p>
-                <img src="https://res.cloudinary.com/dsoh3yteb/image/upload/v1723557186/0f4c23c28b5f4a00b778e0bd03a81f42_jclmqf.png" alt="עיצוב פנים 3" class="floating-image image3">
                 <p>עם ניסיון של מעל 15 שנים בעולם הטכנולוגיה והעסקים, ליוויתי עשרות עסקים בתהליכי אוטומציה דיגיטלית ושילוב מערכות AI מתקדמות. הרציתי בנושאי בינה מלאכותית בבית הספר לעיצוב פנים של "פופה" ועבדתי עם מגוון רחב של לקוחות, מחברות גדולות ועד לסטודיו לעיצוב קטנים.</p>
-                <img src="https://res.cloudinary.com/dsoh3yteb/image/upload/v1723557125/pexels-mark-1080696_vdldwa.jpg" alt="עיצוב פנים 4" class="floating-image image4">
                 <p><strong>המטרה שלי היא להנגיש את הכוח של הבינה המלאכותית לכל מעצב ומעצבת, ולספק את הכלים להצלחה בעולם העיצוב המתפתח של היום.</strong></p>
-            </section>
+            </div>
         </div>
         
         <div class="contact-links">
@@ -239,20 +261,6 @@
                 alert('אירעה שגיאה בעת ההרשמה. אנא נסה שוב מאוחר יותר.');
             });
         });
-        
-        // מיקום אקראי של תמונות במסכים גדולים
-        function randomizeImagePositions() {
-            if (window.innerWidth > 768) {
-                const images = document.querySelectorAll('.floating-image');
-                images.forEach(img => {
-                    img.style.top = Math.random() * 80 + '%';
-                    img.style.left = Math.random() * 80 + '%';
-                });
-            }
-        }
-        
-        window.addEventListener('load', randomizeImagePositions);
-        window.addEventListener('resize', randomizeImagePositions);
     </script>
 </body>
 </html>
