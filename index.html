@@ -215,7 +215,7 @@
         </div>
     </div>
     
-    <script>
+        <script>
         document.getElementById('registration-form').addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -229,8 +229,14 @@
                 },
                 body: JSON.stringify(data),
             })
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text(); // שינוי מ-response.json() ל-response.text()
+            })
             .then(data => {
+                console.log('Success:', data);
                 alert('תודה על ההרשמה! נשלח לך אימייל אישור בקרוב.');
                 this.reset();
             })
@@ -240,5 +246,6 @@
             });
         });
     </script>
+
 </body>
 </html>
