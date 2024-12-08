@@ -34,7 +34,9 @@
             background-color: var(--primary-color);
             color: white;
             text-align: center;
-            padding: 40px 0;
+            padding: 40px 20px 60px;
+            position: relative;
+            margin-bottom: 30px;
             clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
         }
         
@@ -44,20 +46,20 @@
         }
         
         .main-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: -50px;
+            position: relative;
+            margin-top: -30px;
+            padding: 0 15px;
         }
         
         .card {
             background-color: white;
-            padding: 30px;
+            padding: 25px;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             width: 100%;
             max-width: 800px;
+            box-sizing: border-box;
         }
         
         .form-section {
@@ -156,6 +158,63 @@
             
             .gallery img {
                 width: 100%;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+                padding: 0 10px;
+                margin: 10px 0;
+            }
+            
+            header {
+                padding: 20px 15px 40px;
+            }
+            
+            .main-content {
+                margin-top: -20px;
+                padding: 0 10px;
+            }
+            
+            .card {
+                padding: 20px;
+                margin-bottom: 20px;
+            }
+            
+            .contact-links {
+                padding: 0 15px;
+            }
+            
+            .contact-links a {
+                display: block;
+                margin: 10px auto;
+                max-width: 280px;
+                font-size: 0.9em;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5em;
+            }
+            
+            header {
+                padding: 15px 10px 30px;
+            }
+            
+            header p {
+                font-size: 0.9em;
+                padding: 0 5px;
+                margin: 10px 0;
+            }
+            
+            .logo {
+                max-width: 120px;
+                margin-bottom: 15px;
+            }
+            
+            .card {
+                padding: 15px;
+                margin-bottom: 15px;
             }
         }
     </style>
